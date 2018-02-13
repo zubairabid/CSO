@@ -11,12 +11,13 @@ module mkLGCD (LGCD);
     Reg#(Bool) bz <- mkReg(False);
 
     /*feel FREE to add delete or change the name of the rules*/
-    rule swapANDsub (x < y && x != 0/*fill condition here*/);
+    rule swapANDsub (x > y && y != 0/*fill condition here*/);
         // fill your code here
-	y <= y - x;
+        x <= y;
+	y <= x - y;
     endrule
-    rule subtract (x >= y && y != 0 /*fill condition here*/ );
-	x <= x - y;
+    rule subtract (x <= y && x != 0 /*fill condition here*/ );
+	y <= y - x;
 	// fill your code here
     endrule
     rule stop (x == 0 || y == 0/*fill condition here*/);
@@ -25,21 +26,20 @@ module mkLGCD (LGCD);
     endrule
 
     /*Do not change the signature of the method */
-    method Action start(int a, int b); 
+    method Action start(int a, int b) if(y == 0); 
 	// fill your code here
-	if(a >= 1 && b >= 1)
+	if(a <= 0 && b <= 0)
+		$display("ERROR");
+	else
 		bz <= True;
 		x <= a;
-		y <= b;
-	else
-		$display("ERROR");
+		y <= b;		
     endmethod
     method int result();
     	// fill your code here
     	if(x != 0 && y == 0)
     		return x;
     	else
-    	
     		return y;
     endmethod
     method Bool busy;
