@@ -1,0 +1,6 @@
+.globl _start;                                  
+_start:
+
+# Put your own code here
+
+_exit:
