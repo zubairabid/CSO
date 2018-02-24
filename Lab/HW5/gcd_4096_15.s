@@ -2,11 +2,11 @@
 _start:
 
 # Put your own code here
-	lui x5, %hi(256)
-	add x5, x5, %lo(256)
+	lui x5, %hi(4096)
+	add x5, x5, %lo(4096)
 
-	lui x6, %hi(2048)
-	add x6, x6, %lo(2048)
+	lui x6, %hi(15)
+	add x6, x6, %lo(15)
 	
 	blt x6, x5, swap
 	
