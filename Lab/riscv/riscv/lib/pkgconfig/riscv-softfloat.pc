@@ -1,0 +1,11 @@
+prefix=/home/zubair/Documents/DLP/Sem2CSO/Lab/riscv/riscv
+exec_prefix=/home/zubair/Documents/DLP/Sem2CSO/Lab/riscv/riscv
+libdir=${prefix}/${exec_prefix}/lib
+includedir=${prefix}/${prefix}/include
+
+Name: riscv-softfloat
+Description: RISC-V softfloat library
+Version: git
+Libs: -Wl,-rpath,${libdir} -L${libdir} -lsoftfloat
+Cflags: -I${includedir}
+URL: http://riscv.org/download.html#tab_spike
